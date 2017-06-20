@@ -4773,7 +4773,7 @@
 .end method
 
 .method private updateLightsLocked()V
-    .locals 9
+    .locals 8
 
     .prologue
     .line 2421
@@ -4849,7 +4849,22 @@
 
     iget-boolean v7, p0, Lcom/android/server/NotificationManagerService;->mScreenOn:Z
 
-    if-eqz v7, :cond_3
+    if-nez v5, :cond_1
+
+    iget-object v5, p0, Lcom/android/server/NotificationManagerService;->mContext:Landroid/content/Context;
+
+    iget-object v6, p0, Lcom/android/server/NotificationManagerService;->mLedNotification:Lcom/android/server/NotificationManagerService$NotificationRecord;
+
+    iget-object v6, v6, Lcom/android/server/NotificationManagerService$NotificationRecord;->sbn:Landroid/service/notification/StatusBarNotification;
+
+    const-string v7, "_led"
+
+    invoke-static {v5, v6, v7}, Lmiui/util/NotificationFilterHelper;->isAllowed(Landroid/content/Context;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_3
+  
 
     iget-boolean v7, p0, Lcom/android/server/NotificationManagerService;->mDreaming:Z
 
