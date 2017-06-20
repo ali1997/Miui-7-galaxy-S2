@@ -12639,6 +12639,8 @@
     invoke-virtual {p0, v2}, Lcom/android/server/am/ActivityStack;->clearLaunchTime(Lcom/android/server/am/ActivityRecord;)V
 
     .line 749
+    invoke-direct {p0, v3}, Lcom/android/server/am/ActivityStack;->startPausingLocked_Middle(Lcom/android/server/am/ActivityRecord;)V
+
     invoke-virtual {p0, v2}, Lcom/android/server/am/ActivityStack;->screenshotActivities(Lcom/android/server/am/ActivityRecord;)Landroid/graphics/Bitmap;
 
     move-result-object v3
