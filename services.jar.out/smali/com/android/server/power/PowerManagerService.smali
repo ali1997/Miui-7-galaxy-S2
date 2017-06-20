@@ -3663,7 +3663,7 @@
     return-void
 .end method
 
-.method private updatePowerStateLocked()V
+.method updatePowerStateLocked()V
     .locals 5
 
     .prologue
