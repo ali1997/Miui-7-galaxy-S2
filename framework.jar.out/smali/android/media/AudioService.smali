@@ -4082,6 +4082,17 @@
 
     .line 2784
     :cond_b
+    invoke-static {v0, v0}, Landroid/media/AudioSystem;->isStreamActive(II)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_miui_0
+
+    move p1, v0
+
+    goto :goto_0
+
+    :cond_miui_0
     if-ne p1, v5, :cond_0
 
     .line 2785
@@ -5682,9 +5693,9 @@
     if-eqz v0, :cond_0
 
     .line 4391
-    iget-object v0, p0, Landroid/media/AudioService;->mVolumePanel:Landroid/view/VolumePanel;
+    iget-object v0, p0, Landroid/media/AudioService;->mVolumePanel:Lmiui/view/VolumePanel;
 
-    invoke-virtual {v0, p1}, Landroid/view/VolumePanel;->postMasterMuteChanged(I)V
+    invoke-virtual {v0, p1}, Lmiui/view/VolumePanel;->postMasterMuteChanged(I)V
 
     .line 4406
     :goto_0
@@ -7861,7 +7872,7 @@
     const/4 p1, 0x5
 
     :cond_0
-    invoke-direct {p0, p1, p4}, Landroid/media/AudioService;->showVolumeChangeUi(II)V
+    invoke-direct {p0, p1, p4}, Lmiui/media/AudioService;->showVolumeChangeUi(II)V
 
     and-int/lit8 v1, p4, 0x20
 
@@ -8495,9 +8506,9 @@
     if-eqz v0, :cond_0
 
     .line 4410
-    iget-object v0, p0, Landroid/media/AudioService;->mVolumePanel:Landroid/view/VolumePanel;
+    iget-object v0, p0, Landroid/media/AudioService;->mVolumePanel:Lmiui/view/VolumePanel;
 
-    invoke-virtual {v0, p1, p2}, Landroid/view/VolumePanel;->postVolumeChanged(II)V
+    invoke-virtual {v0, p1, p2}, Lmiui/view/VolumePanel;->postVolumeChanged(II)V
 
     .line 4425
     :goto_0
