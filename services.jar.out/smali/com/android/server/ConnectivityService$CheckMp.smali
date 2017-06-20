@@ -2279,6 +2279,22 @@
 
     .line 4329
     :cond_1b
+    const/16 v35, 0xc8
+
+    move/from16 v0, v28
+
+    move/from16 v1, v35
+
+    if-lt v0, v1, :cond_miui_0
+
+    const/16 v35, 0x18f
+
+    move/from16 v0, v28
+
+    move/from16 v1, v35
+
+    if-gt v0, v1, :cond_miui_0
+
     :try_start_18
     new-instance v34, Ljava/lang/StringBuilder;
 
