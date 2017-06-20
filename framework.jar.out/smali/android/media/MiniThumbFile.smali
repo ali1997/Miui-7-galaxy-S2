@@ -1486,11 +1486,11 @@
     .line 319
     iget-object v0, p0, Landroid/media/MiniThumbFile;->mBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->get()B
+    invoke-static {v0, p1, p2}, Landroid/media/MiniThumbFile$Injector;->isMatch(Ljava/nio/ByteBuffer;J)Z
 
     move-result v0
 
-    if-ne v0, v11, :cond_2
+    if-eqz v0, :cond_1
 
     .line 320
     iget-object v0, p0, Landroid/media/MiniThumbFile;->mBuffer:Ljava/nio/ByteBuffer;
