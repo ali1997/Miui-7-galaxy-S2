@@ -1403,7 +1403,10 @@
     .param p2, "mask"    # I
 
     .prologue
+    const/high16 v3, 0x4000000
+    
     .line 748
+    
     and-int v1, p1, p2
 
     const/high16 v2, -0x80000000
