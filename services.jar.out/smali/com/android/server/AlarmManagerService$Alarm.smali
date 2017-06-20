@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(IJJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;)V
-    .locals 0
+    .locals 1
     .param p1, "_type"    # I
     .param p2, "_when"    # J
     .param p4, "_whenElapsed"    # J
