@@ -17883,6 +17883,26 @@
     iput-object v0, v1, Lcom/android/server/pm/PackageManagerService;->mScanningPath:Ljava/io/File;
 
     .line 4162
+
+    const-string v3, "install"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, v58
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->tryIgnorePackage(Landroid/content/pm/PackageParser$Package;Ljava/io/File;Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_miui_20
+
+    const/16 p1, 0x0
+
+    return-object p1
+
+    :cond_miui_20
     and-int/lit8 v3, p2, 0x1
 
     if-eqz v3, :cond_2
@@ -18504,12 +18524,24 @@
     .line 4255
     and-int/lit8 v3, p2, 0x40
 
+    if-eqz v3, :cond_miui_0
+
+    move/from16 v0, p3
+
+    and-int/lit16 v3, v0, 0x100
+
     if-nez v3, :cond_d
 
+    :try_start_2
+    sget-boolean v3, Landroid/os/Build;->IS_DEBUGGABLE:Z
+
+    if-eqz v3, :cond_b
+
+    :cond_miui_0
     .line 4261
     const/4 v3, 0x0
 
-    :try_start_2
+
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
