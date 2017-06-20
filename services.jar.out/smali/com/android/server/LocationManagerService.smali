@@ -4365,7 +4365,7 @@
     return-void
 .end method
 
-.method private removeUpdatesLocked(Lcom/android/server/LocationManagerService$Receiver;)V
+.method removeUpdatesLocked(Lcom/android/server/LocationManagerService$Receiver;)V
     .locals 9
     .param p1, "receiver"    # Lcom/android/server/LocationManagerService$Receiver;
 
@@ -7040,6 +7040,8 @@
     .line 2509
     .end local v10    # "provider":Lcom/android/server/location/LocationProviderInterface;
     :cond_c
+    invoke-static/range {p1 .. p3}, Lcom/android/server/LocationManagerServiceInjector;->dumpLp(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+
     monitor-exit v15
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -9341,7 +9343,7 @@
     move-object/from16 v6, p4
 
     .line 1474
-    invoke-direct/range {v1 .. v6}, Lcom/android/server/LocationManagerService;->requestLocationUpdatesLocked(Landroid/location/LocationRequest;Lcom/android/server/LocationManagerService$Receiver;IILjava/lang/String;)V
+    invoke-virtual/range {v1 .. v6}, Lcom/android/server/LocationManagerService;->requestLocationUpdatesLocked(Landroid/location/LocationRequest;Lcom/android/server/LocationManagerService$Receiver;IILjava/lang/String;)V
 
     .line 1477
     :cond_3
@@ -9350,6 +9352,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 1479
+    :cond_4
     invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     .line 1481
