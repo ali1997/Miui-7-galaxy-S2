@@ -2888,6 +2888,17 @@
     goto :goto_0
 .end method
 
+.method public setContext(Landroid/content/Context;)V
+    .locals 0
+    .param p1, "context"    # Landroid/content/Context;
+
+    .prologue
+    iput-object p1, p0, Landroid/telephony/TelephonyManager;->mContext:Landroid/content/Context;
+
+    return-void
+ .end method
+ 
+
 .method public toggleLTE(Z)V
     .locals 1
     .param p1, "on"    # Z
