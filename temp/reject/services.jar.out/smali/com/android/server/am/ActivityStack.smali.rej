@@ -1,0 +1,19 @@
+*** ActivityStack.smali	2017-06-19 20:23:14.069718451 +0000
+--- ActivityStack.smali	2017-06-19 20:21:55.429328494 +0000
+***************
+*** 11331,11336 ****
+      if-eq v4, v6, :cond_4
+  
+      :cond_3
+      invoke-virtual {p0, v3}, Lcom/android/server/am/ActivityStack;->screenshotActivities(Lcom/android/server/am/ActivityRecord;)Landroid/graphics/Bitmap;
+  
+      move-result-object v4
+--- 11426,11433 ----
+      if-eq v4, v6, :cond_4
+  
+      :cond_3
++     invoke-direct {p0, v3}, Lcom/android/server/am/ActivityStack;->startPausingLocked_Middle(Lcom/android/server/am/ActivityRecord;)V
++ 
+      invoke-virtual {p0, v3}, Lcom/android/server/am/ActivityStack;->screenshotActivities(Lcom/android/server/am/ActivityRecord;)Landroid/graphics/Bitmap;
+  
+      move-result-object v4

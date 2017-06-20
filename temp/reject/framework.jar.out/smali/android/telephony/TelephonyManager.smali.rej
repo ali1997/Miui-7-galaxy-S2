@@ -1,0 +1,27 @@
+*** TelephonyManager.smali	2017-06-19 20:24:47.530181896 +0000
+--- TelephonyManager.smali	2017-06-19 20:23:10.269699607 +0000
+***************
+*** 3280,3285 ****
+      goto :goto_0
+  .end method
+  
+  .method public setRadio(Z)Z
+      .locals 3
+      .param p1, "turnOn"    # Z
+--- 3297,3312 ----
+      goto :goto_0
+  .end method
+  
++ .method public setContext(Landroid/content/Context;)V
++     .locals 0
++     .param p1, "context"    # Landroid/content/Context;
++ 
++     .prologue
++     iput-object p1, p0, Landroid/telephony/TelephonyManager;->mContext:Landroid/content/Context;
++ 
++     return-void
++ .end method
++ 
+  .method public setRadio(Z)Z
+      .locals 3
+      .param p1, "turnOn"    # Z

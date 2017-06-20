@@ -1,0 +1,19 @@
+*** PowerManagerService.smali	2017-06-19 20:23:17.313734537 +0000
+--- PowerManagerService.smali	2017-06-19 20:22:00.077351542 +0000
+***************
+*** 3469,3475 ****
+      return-void
+  .end method
+  
+! .method private updatePowerStateLocked()V
+      .locals 6
+  
+      .prologue
+--- 3485,3491 ----
+      return-void
+  .end method
+  
+! .method updatePowerStateLocked()V
+      .locals 6
+  
+      .prologue

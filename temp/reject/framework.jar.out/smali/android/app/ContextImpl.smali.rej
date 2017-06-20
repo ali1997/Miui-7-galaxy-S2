@@ -1,0 +1,25 @@
+*** ContextImpl.smali	2017-06-19 20:24:26.922079706 +0000
+--- ContextImpl.smali	2017-06-19 20:22:54.581621814 +0000
+***************
+*** 689,694 ****
+      :cond_4
+      iput-object v8, p0, Landroid/app/ContextImpl;->mResources:Landroid/content/res/Resources;
+  
+      if-eqz p1, :cond_5
+  
+      iget-object v1, p1, Landroid/app/ContextImpl;->mBasePackageName:Ljava/lang/String;
+--- 691,704 ----
+      :cond_4
+      iput-object v8, p0, Landroid/app/ContextImpl;->mResources:Landroid/content/res/Resources;
+  
++     iget-object v1, p0, Landroid/app/ContextImpl;->mResources:Landroid/content/res/Resources;
++ 
++     iget-object v2, p0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
++ 
++     iget-object v2, v2, Landroid/app/LoadedApk;->mPackageName:Ljava/lang/String;
++ 
++     invoke-static {v1, v2}, Landroid/miui/ResourcesManager;->initMiuiResource(Landroid/content/res/Resources;Ljava/lang/String;)V
++ 
+      if-eqz p1, :cond_5
+  
+      iget-object v1, p1, Landroid/app/ContextImpl;->mBasePackageName:Ljava/lang/String;

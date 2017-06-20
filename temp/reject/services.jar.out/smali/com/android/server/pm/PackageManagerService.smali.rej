@@ -1,0 +1,72 @@
+*** PackageManagerService.smali	2017-06-19 20:23:21.441755007 +0000
+--- PackageManagerService.smali	2017-06-19 20:22:04.641374174 +0000
+***************
+*** 15939,15944 ****
+  
+      .restart local p1    # "pkg":Landroid/content/pm/PackageParser$Package;
+      :cond_1
+      and-int/lit8 v3, p2, 0x1
+  
+      if-eqz v3, :cond_2
+--- 16001,16025 ----
+  
+      .restart local p1    # "pkg":Landroid/content/pm/PackageParser$Package;
+      :cond_1
++     const-string v3, "install"
++ 
++     move-object/from16 v0, p0
++ 
++     move-object/from16 v1, p1
++ 
++     move-object/from16 v2, v58
++ 
++     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->tryIgnorePackage(Landroid/content/pm/PackageParser$Package;Ljava/io/File;Ljava/lang/String;)Z
++ 
++     move-result v3
++ 
++     if-eqz v3, :cond_miui_20
++ 
++     const/16 p1, 0x0
++ 
++     return-object p1
++ 
++     :cond_miui_20
+      and-int/lit8 v3, p2, 0x1
+  
+      if-eqz v3, :cond_2
+***************
+*** 16395,16405 ****
+  
+      and-int/lit8 v3, p2, 0x40
+  
+      if-nez v3, :cond_b
+  
+      const/4 v3, 0x0
+  
+-     :try_start_2
+      move-object/from16 v0, p0
+  
+      move-object/from16 v1, p1
+--- 16476,16497 ----
+  
+      and-int/lit8 v3, p2, 0x40
+  
++     if-eqz v3, :cond_miui_0
++ 
++     move/from16 v0, p3
++ 
++     and-int/lit16 v3, v0, 0x100
++ 
+      if-nez v3, :cond_b
+  
++     :try_start_2
++     sget-boolean v3, Landroid/os/Build;->IS_DEBUGGABLE:Z
++ 
++     if-eqz v3, :cond_b
++ 
++     :cond_miui_0
+      const/4 v3, 0x0
+  
+      move-object/from16 v0, p0
+  
+      move-object/from16 v1, p1

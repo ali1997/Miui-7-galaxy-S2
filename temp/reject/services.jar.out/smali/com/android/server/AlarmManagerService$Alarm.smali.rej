@@ -1,0 +1,19 @@
+*** AlarmManagerService$Alarm.smali	2017-06-19 20:23:17.997737929 +0000
+--- AlarmManagerService$Alarm.smali	2017-06-19 20:22:01.053356382 +0000
+***************
+*** 38,44 ****
+  
+  # direct methods
+  .method public constructor <init>(IJJJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;)V
+!     .locals 0
+      .param p1, "_type"    # I
+      .param p2, "_when"    # J
+      .param p4, "_whenElapsed"    # J
+--- 40,46 ----
+  
+  # direct methods
+  .method public constructor <init>(IJJJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;)V
+!     .locals 1                             # change 0->1
+      .param p1, "_type"    # I
+      .param p2, "_when"    # J
+      .param p4, "_whenElapsed"    # J

@@ -1,0 +1,61 @@
+*** MiniThumbFile.smali	2017-06-19 20:24:38.046134867 +0000
+--- MiniThumbFile.smali	2017-06-19 20:23:02.825662694 +0000
+***************
+*** 176,182 ****
+  
+      invoke-direct {p0}, Landroid/media/MiniThumbFile;->removeOldFile()V
+  
+!     const/4 v4, 0x3
+  
+      invoke-direct {p0, v4}, Landroid/media/MiniThumbFile;->randomAccessFilePath(I)Ljava/lang/String;
+  
+--- 184,190 ----
+  
+      invoke-direct {p0}, Landroid/media/MiniThumbFile;->removeOldFile()V
+  
+!     const/4 v4, 0x4
+  
+      invoke-direct {p0, v4}, Landroid/media/MiniThumbFile;->randomAccessFilePath(I)Ljava/lang/String;
+  
+***************
+*** 371,377 ****
+      .locals 3
+  
+      .prologue
+!     const/4 v2, 0x2
+  
+      invoke-direct {p0, v2}, Landroid/media/MiniThumbFile;->randomAccessFilePath(I)Ljava/lang/String;
+  
+--- 379,385 ----
+      .locals 3
+  
+      .prologue
+!     const/4 v2, 0x3
+  
+      invoke-direct {p0, v2}, Landroid/media/MiniThumbFile;->randomAccessFilePath(I)Ljava/lang/String;
+  
+***************
+*** 583,593 ****
+  
+      iget-object v0, p0, Landroid/media/MiniThumbFile;->mBuffer:Ljava/nio/ByteBuffer;
+  
+!     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->get()B
+  
+      move-result v0
+  
+!     if-ne v0, v9, :cond_1
+  
+      iget-object v0, p0, Landroid/media/MiniThumbFile;->mBuffer:Ljava/nio/ByteBuffer;
+  
+--- 595,605 ----
+  
+      iget-object v0, p0, Landroid/media/MiniThumbFile;->mBuffer:Ljava/nio/ByteBuffer;
+  
+!     invoke-static {v0, p1, p2}, Landroid/media/MiniThumbFile$Injector;->isMatch(Ljava/nio/ByteBuffer;J)Z
+  
+      move-result v0
+  
+!     if-eqz v0, :cond_1
+  
+      iget-object v0, p0, Landroid/media/MiniThumbFile;->mBuffer:Ljava/nio/ByteBuffer;
+  

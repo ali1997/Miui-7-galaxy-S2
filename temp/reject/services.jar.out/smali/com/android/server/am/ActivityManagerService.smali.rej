@@ -1,0 +1,50 @@
+*** ActivityManagerService.smali	2017-06-19 20:23:14.381719998 +0000
+--- ActivityManagerService.smali	2017-06-19 20:21:55.837330517 +0000
+***************
+*** 3864,3869 ****
+  
+      .end local p3    # "intent":Landroid/content/Intent;
+      .local v15, "intent":Landroid/content/Intent;
+      const/16 v3, 0x10
+  
+      invoke-virtual {v15, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+--- 3882,3891 ----
+  
+      .end local p3    # "intent":Landroid/content/Intent;
+      .local v15, "intent":Landroid/content/Intent;
++     move-object/from16 v0, p2
++ 
++     invoke-virtual {v15, v0}, Landroid/content/Intent;->setSender(Ljava/lang/String;)V
++ 
+      const/16 v3, 0x10
+  
+      invoke-virtual {v15, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+***************
+*** 14827,14832 ****
+  
+      invoke-direct {v0, v1, v2, v4}, Lcom/android/server/am/ActivityManagerService;->removeUriPermissionsForPackageLocked(Ljava/lang/String;IZ)V
+  
+      if-eqz p1, :cond_13
+  
+      if-eqz p7, :cond_1b
+--- 14877,14896 ----
+  
+      invoke-direct {v0, v1, v2, v4}, Lcom/android/server/am/ActivityManagerService;->removeUriPermissionsForPackageLocked(Ljava/lang/String;IZ)V
+  
++     move-object/from16 v0, p0
++ 
++     move-object/from16 v1, p1
++ 
++     move/from16 v2, p8
++ 
++     move/from16 v3, p5
++ 
++     move/from16 v4, v17
++ 
++     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/am/ActivityManagerService;->forceStopPackageLocked_Hook1(Ljava/lang/String;IZZ)Z
++ 
++     move-result v17
++ 
+      if-eqz p1, :cond_13
+  
+      if-eqz p7, :cond_1b
