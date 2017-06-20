@@ -26436,12 +26436,8 @@
     iput-object v0, p0, Landroid/widget/TextView;->mHint:Ljava/lang/CharSequence;
 
     .line 3917
-    iget-object v0, p0, Landroid/widget/TextView;->mLayout:Landroid/text/Layout;
-
-    if-eqz v0, :cond_0
 
     .line 3918
-    invoke-direct {p0}, Landroid/widget/TextView;->checkForRelayout()V
 
     .line 3921
     :cond_0
