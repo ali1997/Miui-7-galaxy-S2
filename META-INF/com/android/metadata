@@ -1,0 +1,3 @@
+post-build=samsung/omni_i9100/i9100:4.4.4/KTU84P/560:userdebug/release-keys
+post-timestamp=1432146691
+pre-device=i9100
